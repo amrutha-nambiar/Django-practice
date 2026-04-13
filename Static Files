@@ -1,0 +1,6 @@
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
