@@ -1,0 +1,10 @@
+from .models import Event
+
+# 1. Display all
+Event.objects.all()
+
+# 2. Update
+Event.objects.filter(id=3).update(location="Mumbai")
+
+# 3. Delete
+Event.objects.filter(title="Workshop").delete()
