@@ -1,0 +1,8 @@
+def home(request):
+    return HttpResponse("Welcome to College Website")
+
+def courses(request):
+    return HttpResponse("Courses Offered")
+
+def students(request):
+    return HttpResponse("Student Section")
