@@ -1,0 +1,19 @@
+Register Model
+Python
+admin.site.register(Product)
+🔹 Enable Admin
+Bash
+python manage.py createsuperuser
+python manage.py runserver
+👉 Open:
+
+http://127.0.0.1:8000/admin
+🔹 Pagination in View
+Python
+from django.core.paginator import Paginator
+
+products = Product.objects.all()
+paginator = Paginator(products, 5)
+
+page = request.GET.get('page')
+products = paginator.get_page(page)
