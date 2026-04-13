@@ -1,0 +1,13 @@
+def upload_file(request):
+    if request.method == 'POST':
+        file = request.FILES['file']
+        return HttpResponse(f"Uploaded: {file.name}")
+
+    return render(request, 'upload.html')
+
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="file">
+    <button type="submit">Upload</button>
+</form>
