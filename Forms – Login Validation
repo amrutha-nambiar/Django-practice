@@ -1,0 +1,38 @@
+from django import forms
+
+class LoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
+
+
+
+from django.shortcuts import render
+from .forms import LoginForm
+
+def login_view(request):
+    form = LoginForm(request.POST or None)
+    message = ""
+
+    if request.method == "POST":
+        if form.is_valid():
+            user = form.cleaned_data['username']
+            pwd = form.cleaned_data['password']
+
+            if user == "admin" and pwd == "123":
+                message = "Login Successful"
+            else:
+                message = "Invalid Credentials"
+
+    return render(request, 'login.html', {'form': form, 'message': message})
+
+
+
+
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Login</button>
+</form>
+
+<p>{{ message }}</p>
