@@ -1,0 +1,7 @@
+from django.http import HttpResponse
+
+def student_home(request):
+    return HttpResponse("Welcome to Student Management System")
+
+def student_details(request):
+    return HttpResponse("Student Details Page")
