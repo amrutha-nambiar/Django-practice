@@ -1,0 +1,10 @@
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to Online Store")
+
+def about(request):
+    return HttpResponse("About Us Page")
+
+def contact(request):
+    return HttpResponse("Contact Us Page")
